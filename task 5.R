@@ -4,7 +4,7 @@ vents <- read.delim("test5.txt", sep=">", col.names=c("p1","p2"), header=FALSE) 
   separate(p1, c("x1", "y1"), ",") %>%
   separate(p2, c("x2", "y2"), ",") %>%
   mutate(across(everything(),as.numeric)) #%>%
-  # filter(x1 == x2 | y1 == y2) # snip out to restore diagonals for Part 1
+  # filter(x1 == x2 | y1 == y2) # snip out to restore diagonals for Part 2
 
 # get all intermediate locations  
 points <- unlist(map(data.frame(vents %>% t()), 
