@@ -27,7 +27,6 @@ for(x in seq(1,80)){
 message(x, "  :  ", input1, " :: ", length(input1))
 
 ## Part 2
-
 zeroes <- as.bigz(length(data[data == 0]))
 ones <-   as.bigz(length(data[data == 1]))
 twos <-   as.bigz(length(data[data == 2]))
@@ -61,12 +60,6 @@ for(x in seq(1,256)){
   ones <- ones_new
   zeroes <- zeroes_new
   
-  # input <- unlist(map(input, function(x)
-  #   if(x == 0) 6 else if(x == -1) x else x-1))
-  # 
-  # for(e in seq(lenwhole, lenwhole + eights)){
-  #   input[e] <- 8
-  # }
   message(paste(c(zeroes, ones, twos, threes, fours, fives, sixes, sevens, eights), collapse=" | "))
   message(x, "  :  ", (zeroes + ones + twos + threes + fours + fives + sixes + sevens + eights))
 }
