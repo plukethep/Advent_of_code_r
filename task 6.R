@@ -40,24 +40,16 @@ eights <- as.bigz(length(data[data == 8]))
 
 for(x in seq(1,256)){
 
-  eights_new <- zeroes
-  sevens_new <- eights
-  sixes_new <- sevens + zeroes
-  fives_new <- sixes 
-  fours_new <- fives
-  threes_new <- fours
-  twos_new <- threes
-  ones_new <- twos
   zeroes_new <- ones
+  ones <- twos
+  twos <- threes
+  threes <- fours
+  fours <- fives
+  fives <- sixes 
+  sixes <- sevens + zeroes
+  sevens <- eights
+  eights <- zeroes
   
-  eights <- eights_new
-  sevens <- sevens_new
-  sixes <- sixes_new
-  fives <- fives_new 
-  fours <- fours_new
-  threes <- threes_new
-  twos <- twos_new
-  ones <- ones_new
   zeroes <- zeroes_new
   
   message(paste(c(zeroes, ones, twos, threes, fours, fives, sixes, sevens, eights), collapse=" | "))
