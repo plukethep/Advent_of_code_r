@@ -6,43 +6,22 @@ get_val <- function(data, x, y){
 }
 
 go_up <- function(x, y){
-  if(y != 1){
-    TRUE
-  }else{
-    FALSE
-  }
+  if(y != 1) TRUE else FALSE
 }
 
 go_down <- function(data, x, y){
-  if(y != max(nrow(data))){
-    TRUE
-  }else{
-    FALSE
-  }
+  if(y != max(nrow(data))) TRUE else FALSE
 }
 
 go_left <- function(x, y){
-  if(x != 1){
-    TRUE
-  }else{
-    FALSE
-  }
+  if(x != 1) TRUE else FALSE
 }
 
 go_right <- function(data, x, y){
-  if(x != str_length(data[1,])){
-    TRUE
-  }else{
-    FALSE
-  }
+  if(x != str_length(data[1,])) TRUE else FALSE
 }
 
 get_surround <- function(data, x, y){
-  
-  # data = heights
-  # x=10 
-  # y=5
-  
   surround <- c()
   
   # get above
@@ -65,14 +44,10 @@ get_surround <- function(data, x, y){
     surround <- c(surround, get_val(data, x+1, y))
   }
   
-
-  
   return(surround)
 }
 
 get_surround_dip <- function(data, x, y, visited, id){
-  # message("another roll", x, y)
-  
   surround <- data.frame()
   
   if(visited){
@@ -124,7 +99,6 @@ get_surround_dip <- function(data, x, y, visited, id){
   return(surround)
 }
 
-
 heights <- as.data.frame(readLines("test9.txt"))
 
 risk <- c()
@@ -142,7 +116,6 @@ for(y in seq(nrow(heights))){
       risk <- c(risk, as.numeric(height) + 1)
       risks <- rbind(risks, c(x,y))
     }
-    # message(x,y, " - ", height, " - ", surround)  
   }
 }
 
@@ -172,5 +145,3 @@ while(check %>% filter(visited == FALSE) %>% nrow() > 0){
 }
 
 prod(check %>% group_by(id) %>% summarise(n=n()) %>% arrange(desc(n)) %>% head(3) %$% n)
-
-
