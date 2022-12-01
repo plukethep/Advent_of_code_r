@@ -1,4 +1,7 @@
 library(tidyverse)
+library(readr)
+
+data <- gsub("\r", "", read_file(r'[C:\YOURLOCATION\AOC1.txt]'))
 
 # Part 1
 max(
@@ -24,6 +27,7 @@ max(
     head(3) %>% 
     sum()
 
+# alternatively, hard code it
 data<-"5229
 1021
 2051
