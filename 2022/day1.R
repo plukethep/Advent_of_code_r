@@ -1,3 +1,29 @@
+library(tidyverse)
+
+# Part 1
+max(
+  unlist(
+    map(strsplit(data, "\n\n")[[1]],
+      ~{sum(
+          as.numeric(
+           unlist(
+             strsplit(.x,"\n"))
+          ))
+        })))
+
+# Part 2
+  unlist(
+    map(strsplit(data, "\n\n")[[1]],
+        ~{sum(
+          as.numeric(
+            unlist(
+              strsplit(.x,"\n"))
+          ))
+        })) %>% 
+    sort(decreasing = TRUE) %>% 
+    head(3) %>% 
+    sum()
+
 data<-"5229
 1021
 2051
@@ -2236,13 +2262,3 @@ data<-"5229
 9293
 9680
 10283"
-
-max(
-  unlist(
-    map(strsplit(data, "\n\n")[[1]],
-      ~{sum(
-          as.numeric(
-           unlist(
-             strsplit(.x,"\n"))
-          ))
-        })))
