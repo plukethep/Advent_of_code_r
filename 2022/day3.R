@@ -15,7 +15,6 @@ left_join(rucks, letvals, by=c("common"="lets")) %>%
   pull(vals) %>% sum()
 
 ## PART 2
-
 rucks2 <- rucks %>% ungroup() %>% # upgroup the previous rowwise
             mutate(lead1 = lead(rucksacks, 1, default=""),
                     lead2 = lead(rucksacks, 2, default="")) %>%
