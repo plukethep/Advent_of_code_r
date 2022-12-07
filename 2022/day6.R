@@ -10,3 +10,7 @@ map_int(1:(length(key)-3),
       }else{
         as.integer(x + (msglen-1))
       }}) %>% match(1:length(key)) %>% na.omit() %>% head(1)
+
+## 2 liner with regex, change the 4, to 14 to change message length
+reg <- paste0(paste0("(.)(?!\\", accumulate(1:(4-1), \(o, i){paste(o, i, sep = "|\\")}), ")", collapse=""), "(.)")
+str_locate(txt, reg)[,"end"]
