@@ -1,7 +1,7 @@
 library(tidyverse)
 library(glue)
 
-loc <- r"[C:\Users\k1926273\OneDrive - King's College London\Code\advent\]"
+loc <- r"[..\advent\]"
 day <- "day1"
 fle <- glue("{loc}{day}/input1.txt")
 df <- read_delim(fle,delim = "   ", col_names = FALSE)
