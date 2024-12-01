@@ -13,6 +13,9 @@ df %>% mutate(X1 = sort(df$X1),
   summarise(total = sum(abs(difference))) %>%
   pull(total)
 
+# or more simply
+(sort(df$X1) - sort(df$X2)) |> abs() |> sum()
+
 # PART 2
 map_dbl(df$X1, \(x1){
   x1 * ((df$X2 == x1) %>% sum())
